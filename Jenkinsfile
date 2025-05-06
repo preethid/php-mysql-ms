@@ -6,7 +6,7 @@ pipeline{
         IMAGE_NAME='devopstrainer/phpapp:php{BUILD_NUMBER}'
     }
     stages{
-        stage(){
+        stage('Build the php application'){
             agent any
             steps{
                 script{
