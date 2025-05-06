@@ -10,7 +10,7 @@ pipeline{
             agent any
             steps{
                 script{
-                    sshagent{['slave2']}{
+                    sshagent(['slave2']){
                          withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                         echo "Containerizing the application"
                         sh "scp -o StrictHostKeyChecking=no -r BuildConfig ${BUILD_SERVER}:/home/ec2-user"
