@@ -3,7 +3,7 @@ pipeline{
 
     environment{
         BUILD_SERVER='ec2-user@172.31.12.47'
-        IMAGE_NAME='devopstrainer/phpapp:php$BUILD_NUMBER'
+        IMAGE_NAME='devopstrainer/java-mvn-privaterepos:php$BUILD_NUMBER'
     }
     stages{
         stage('Build the php application'){
