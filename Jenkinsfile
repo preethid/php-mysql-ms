@@ -24,8 +24,6 @@ pipeline{
                 }
             }
         }
-    }
-     stages{
         stage('Deploy the php application'){
             agent any
             steps{
