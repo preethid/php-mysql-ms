@@ -1,0 +1,22 @@
+version: "3"
+services:
+  web:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: php:v1
+    ports:
+    - "55003-55004:80"
+    deploy:
+       replicas: 2
+    depends_on:
+    - mysql
+  mysql:
+    image: sql:v1
+    volumes:
+    - db_data:/var/lib/mysql
+    environment:
+       MYSQL_ROOT_PASSWORD: password
+       MYSQL_DATABASE: mydatabase
+volumes:
+  db_data: {}
