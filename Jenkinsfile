@@ -5,7 +5,7 @@ pipeline{
         BUILD_SERVER='ec2-user@172.31.12.47'
         IMAGE_NAME='devopstrainer/phpapp:php{BUILD_NUMBER}'
     }
-    Stages{
+    stages{
         stage(){
             agent any
             steps{
