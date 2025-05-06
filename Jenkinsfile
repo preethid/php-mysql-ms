@@ -15,7 +15,7 @@ pipeline{
                         echo "Containerizing the application"
                         sh "scp -o StrictHostKeyChecking=no -r BuildConfig ${BUILD_SERVER}:/home/ec2-user"
                         sh "ssh -o StrictHostKeyChecking=no ${BUILD_SERVER} 'bash /home/ec2-user/BuildConfig/docker-script.sh'"
-                        sh "ssh ${BUILD_SERVER} sudo docker build -t ${IMAGE_NAME} /home/ec2-user/BuildConfig/"
+                        sh "ssh ${BUILD_SERVER} 'sudo docker build -t ${IMAGE_NAME} /home/ec2-user/BuildConfig/'"
                         sh "ssh ${BUILD_SERVER} 'sudo docker login -u ${USERNAME} -p ${PASSWORD}'"
                         sh "ssh ${BUILD_SERVER} 'sudo docker push ${IMAGE_NAME}'"
                          }
